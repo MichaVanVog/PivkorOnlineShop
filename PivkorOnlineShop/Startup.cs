@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace PivkorOnlineShop
 {
@@ -26,6 +27,7 @@ namespace PivkorOnlineShop
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDeveloperExceptionPage();
+            app.UseSerilogRequestLogging();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
