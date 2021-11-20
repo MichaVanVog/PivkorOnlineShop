@@ -1,0 +1,36 @@
+﻿<header>
+    <nav class="navbar" style="background-color:darkorange;">
+        <div class="container">
+            <div class=" row align-items-center">
+                <div class=" col">
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                        <img src="/images/logo.jpg" alt="Logo" class="img-fluid rounded-circle" width="70" height="70">
+                    </a>
+                </div>
+                <div class=" col">
+                    <form class="container-fluid align-content-center align-items-center">
+                        <a class="btn btn-primary btn-lg text-nowrap" asp-controller="Home" asp-action="Delivery">Доставка</a>
+                    </form>
+                </div>
+                <div class=" col">
+                    <form class="container-fluid align-content-center align-items-center">
+                        <a class="btn btn-primary btn-lg text-nowrap" asp-controller="Home" asp-action="Addresses">Адреса магазинов</a>
+                    </form>
+                </div>
+                <div class=" col">
+                    <form class="container-fluid align-content-center align-items-center">
+                        <a class="btn btn-primary btn-lg text-nowrap" asp-controller="Home" asp-action="Cooperation">Сотрудничество</a>
+                    </form>
+                </div>
+                <div class=" col">
+                    <a asp-controller="Cart" asp-action="Index">@await Component.InvokeAsync("Cart")</a>
+                </div>
+                <div class=" col">
+                    <form class="container-fluid align-content-center align-items-center">
+                        <a class="btn btn-dark btn-lg text-nowrap" asp-controller="Account" asp-action="Login">Личный кабинет</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

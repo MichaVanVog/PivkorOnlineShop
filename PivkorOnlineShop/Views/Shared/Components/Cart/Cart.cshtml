@@ -1,0 +1,24 @@
+﻿@model decimal
+<div class=" row align-items-center">
+    @if (Model == 0)
+    {
+        <div class=" col">
+            <img src="~/images/shopping_cart_black_24dp.svg" alt="Shopping Cart" class="img-fluid" width="30" height="30" />
+        </div>
+    }
+    else
+    {
+        <div class=" col">
+            <img src="~/images/shopping_cart_black_24dp.svg" alt="Shopping Cart" class="img-fluid" width="30" height="30" />
+        </div>
+        <div class=" col">
+            <button type="button" class="btn btn-outline-info position-relative">
+                @ViewBag.PriceSumOfAllItems
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    @Model
+                    <span class="visually-hidden">Товары в корзине</span>
+                </span>
+            </button>
+        </div>
+    }
+</div>

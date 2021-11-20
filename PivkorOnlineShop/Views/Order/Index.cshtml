@@ -1,0 +1,58 @@
+﻿@model UserDeliveryInfo
+
+@{
+    ViewData["Title"] = "Контактные данные";
+}
+<h3>Ваши контактные данные</h3>
+
+<div class="text-danger font-weight-bold" asp-validation-summary="All"></div>
+
+<form class="row g-3" method="post">
+    <div class="col-md-6">
+        <label asp-for="Name" class="form-label">Имя, Фамилия</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="ФИО">
+         <span asp-validation-for="Name" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Phone" class="form-label">Телефон</label>
+        <input asp-for="Phone" type="number" class="form-control" placeholder="+7(000) 000-00-00">
+         <span asp-validation-for="Phone" />
+    </div>
+    <div class="col-12">
+        <label asp-for="Street" class="form-label">Улица</label>
+        <input asp-for="Street" type="text" class="form-control" placeholder="Сходненская ул">
+         <span asp-validation-for="Street" />
+    </div>
+    <div class="col-md-3">
+        <label asp-for="HouseNumber" class="form-label">Номер дома</label>
+        <input asp-for="HouseNumber" type="number" class="form-control" placeholder="1/2">
+         <span asp-validation-for="HouseNumber" />
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Entrance" class="form-label">Подъезд</label>
+        <input asp-for="Entrance" type="number" class="form-control" placeholder="подъезд">
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Floor" class="form-label">Этаж</label>
+        <input asp-for="Floor" type="number" class="form-control" placeholder="этаж">
+    </div>
+    <div class="col-md-3">
+        <label asp-for="Flat" class="form-label">Квартира</label>
+        <input asp-for="Flat" type="number" class="form-control" placeholder="квартира">
+    </div>
+    <div class="col-12">
+        <label asp-for="Comments" class="form-label">комментарий к заказу</label>
+        <textarea asp-for="Comments" class="form-control" rows="2" placeholder="опционально"></textarea>
+    </div>
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck" required>
+            <label class="form-check-label" for="gridCheck">
+                Я соглашаюсь с условиями предоставления услуги.
+            </label>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-success" type="submit" asp-controller="Order" asp-action="Buy">Оформить заказ</button>
+    </div>
+</form>

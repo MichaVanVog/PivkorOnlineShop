@@ -1,0 +1,40 @@
+﻿@model List<Role>
+@{
+    ViewData["Title"] = "Панель администратора";
+}
+
+<h3>Панель Администратора</h3>
+<div class="row">
+@await Html.PartialAsync("AdminLeftPannel")
+</div>
+<div class="col-9">
+    <h4>Роли</h4>
+</div>
+
+<a class="btn btn-primary btn-sm" asp-controller="Admin" asp-action="AddRole" role="button">Добавить новую роль</a>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Название</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i< Model.Count; i++)
+                {
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>@Model[i].Name</td>
+                        <td>
+                            <a class="btn" asp-controller="Admin" asp-action="RemoveRole" asp-route-roleName="@Model[i].Name">
+                                <span class="badge rounded-pill bg-light text-dark">Удалить</span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

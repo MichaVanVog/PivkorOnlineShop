@@ -1,0 +1,46 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "Детали заказа";
+}
+
+<h3>Детали заказа</h3>
+
+<form method="post">
+<div class="row">
+    <div class="col-6">
+        <table class="table">
+            <tr>
+                <td>Дата</td>
+                <td>@Model.CreatedDateTime.ToString("d")</td>
+            </tr>
+            <tr>
+                <td>Время</td>
+                <td>@Model.CreatedDateTime.ToString("T")</td>
+            </tr>
+            <tr>
+                <td>Номер заказа</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>Клиент</td>
+                <td>@Model.User</td>
+            </tr>
+            <tr>
+                <td>Сумма заказа</td>
+                <td>@Model.PriceSumOfAllItems</td>
+            </tr>
+            <tr>
+                <td>Список заказа</td>
+                <td>@Model.Items</td>
+            </tr>
+            <tr>
+                <td>Статус заказа</td>
+                <td>
+                    <select asp-for="@Model.Status" asp-items="@Html.GetEnumSelectList<OrderStatus>()" class="form-control"></select>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <button class="btn btn-success" type="submit" asp-controller="Admin" asp-action="UpdateOrderStatus" asp-route-orderId="@Model.Id">Обновить статус</button>
+</div>
+</form>

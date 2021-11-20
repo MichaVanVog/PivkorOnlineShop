@@ -1,0 +1,22 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Доставка и Предзаказ";
+}
+
+<div class="row my-5">
+    @foreach (var product in Model)
+    {
+        <div class="col-3 card shadow">
+            <div class="card-body">
+                <a asp-controller="Products" asp-action="Index" asp-route-id="@product.Id">
+                    <img class="card-img-top" alt="картинка @product.Name" src=@product.ImagePath />
+                </a>
+                <div class="card-body">
+                    <a class="btn" asp-controller="Products" asp-action="Index" asp-route-id="@product.Id"><h5>@product.Name</h5></a>
+                    <h5>@product.Price руб.</h5>
+                    <a class="btn btn-warning" asp-controller="Cart" asp-action="Add" asp-route-productId="@product.Id" role="button">Добавить в корзину</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
